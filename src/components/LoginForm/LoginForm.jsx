@@ -1,5 +1,5 @@
 import { useDispatch } from 'react-redux';
-import Login from 'pages/LoginPage';
+import { logIn } from 'redux/auth/operation';
 import * as Yup from 'yup';
 import { Button, FormContainer, FormGroup, Label } from './LoginFormStyles';
 import { ErrorMessage, Field, Formik } from 'formik';
@@ -19,7 +19,7 @@ const LoginForm = () => {
     password: Yup.string().required('Password field is required'),
   });
   const handleSubmit = (values, { resetForm }) => {
-    dispatch(Login(values));
+    dispatch(logIn(values));
     resetForm();
   };
 
