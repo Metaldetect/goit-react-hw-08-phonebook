@@ -3,7 +3,6 @@ import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/operation';
 import { Formik, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
-import {} from './RegisterFormStyles';
 import Notiflix from 'notiflix';
 import {
   ErrorMessageContainer,
@@ -39,7 +38,6 @@ const RegistrationForm = () => {
           password: values.password,
         })
       );
-     
       Notiflix.Notify.success(successMessage);
       resetForm();
     } catch (error) {
