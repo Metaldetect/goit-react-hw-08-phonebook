@@ -1,12 +1,11 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { register } from 'redux/auth/operation';
-import { Formik, Field, ErrorMessage } from 'formik';
+import { Formik, Field, ErrorMessage, Form } from 'formik';
 import * as Yup from 'yup';
 import Notiflix from 'notiflix';
 import {
   ErrorMessageContainer,
-  FormContainer,
   Button,
   FormGroup,
   Label,
@@ -51,7 +50,7 @@ const RegistrationForm = () => {
       validationSchema={validationSchema}
       onSubmit={handleSubmit}
     >
-      <FormContainer autoComplete="off">
+      <Form autoComplete="off">
         {
           <>
             <FormGroup>
@@ -67,7 +66,7 @@ const RegistrationForm = () => {
             <Button type="submit">Register</Button>
           </>
         }
-      </FormContainer>
+      </Form>
     </Formik>
   );
 };
