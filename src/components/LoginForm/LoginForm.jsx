@@ -1,7 +1,12 @@
 import { useDispatch } from 'react-redux';
 import { logIn } from 'redux/auth/operation';
 import * as Yup from 'yup';
-import { Button, FormGroup, Label } from './LoginFormStyles';
+import {
+  Button,
+  ErrorMessageContainer,
+  FormGroup,
+  Label,
+} from './LoginFormStyles';
 import { ErrorMessage, Field, Formik, Form } from 'formik';
 
 const LoginForm = () => {
@@ -33,12 +38,12 @@ const LoginForm = () => {
         <FormGroup>
           <Label htmlFor="email">Email</Label>
           <Field type="email" id="email" name="email" />
-          <ErrorMessage name="email" component="div" className="error" />
+          <ErrorMessage name="email" component={ErrorMessageContainer} />
         </FormGroup>
         <FormGroup>
           <Label htmlFor="password">Password</Label>
           <Field type="password" id="password" name="password" />
-          <ErrorMessage name="password" component="div" className="error" />
+          <ErrorMessage name="password" component={ErrorMessageContainer} />
         </FormGroup>
         <Button type="submit">Log In</Button>
       </Form>
