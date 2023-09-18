@@ -27,6 +27,15 @@ function App() {
       <Route path="/" element={<Layout />}>
         <Route index element={<HomePage />} />
         <Route
+          path="register"
+          element={
+            <RestrictedRoute
+              redirectTo="/contacts"
+              component={<RegisterPage />}
+            />
+          }
+        />
+        <Route
           path="login"
           element={
             <RestrictedRoute redirectTo="/contacts" component={<LoginPage />} />
@@ -38,15 +47,7 @@ function App() {
             <PrivateRoute redirectTo="/login" component={<ContactsPage />} />
           }
         />
-        <Route
-          path="register"
-          element={
-            <RestrictedRoute
-              redirectTo="/contacts"
-              component={<RegisterPage />}
-            />
-          }
-        />
+
         <Route path="*" element={<Navigate to="/" />} />
       </Route>
     </Routes>
