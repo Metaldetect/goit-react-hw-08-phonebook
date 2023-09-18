@@ -1,8 +1,8 @@
 import { useDispatch } from 'react-redux';
 import { logIn } from 'redux/auth/operation';
 import * as Yup from 'yup';
-import { Button, FormContainer, FormGroup, Label } from './LoginFormStyles';
-import { ErrorMessage, Field, Formik } from 'formik';
+import { Button, FormGroup, Label } from './LoginFormStyles';
+import { ErrorMessage, Field, Formik, Form } from 'formik';
 
 const LoginForm = () => {
   const dispatch = useDispatch();
@@ -29,7 +29,7 @@ const LoginForm = () => {
       validationSchema={validationSchema}
       onSubmit={handleSubmit}
     >
-      <FormContainer autoComplete="off">
+      <Form autoComplete="off">
         <FormGroup>
           <Label htmlFor="email">Email</Label>
           <Field type="email" id="email" name="email" />
@@ -41,7 +41,7 @@ const LoginForm = () => {
           <ErrorMessage name="password" component="div" className="error" />
         </FormGroup>
         <Button type="submit">Log In</Button>
-      </FormContainer>
+      </Form>
     </Formik>
   );
 };
