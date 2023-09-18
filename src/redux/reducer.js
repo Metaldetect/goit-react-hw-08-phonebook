@@ -2,11 +2,11 @@ import { combineReducers } from '@reduxjs/toolkit';
 import { filtersReducer } from './filterSlice';
 
 import { contactsApi } from './contactsApi';
-import { contactsReducer } from './contactSlice';
+// import { contactsReducer } from './contactSlice';
 
 const rootReducer = combineReducers({
   filter: filtersReducer,
-  contacts: contactsReducer,
+  // contacts: contactsReducer,
   [contactsApi.reducerPath]: contactsApi.reducer,
 });
 
