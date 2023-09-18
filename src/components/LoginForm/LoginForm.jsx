@@ -23,7 +23,7 @@ const LoginForm = () => {
       .required('Email field is required'),
     password: Yup.string().required('Password field is required'),
   });
-  const handleSubmit = (values, resetForm) => {
+  const handleSubmit = (values, { resetForm }) => {
     dispatch(logIn(values));
     resetForm();
   };
