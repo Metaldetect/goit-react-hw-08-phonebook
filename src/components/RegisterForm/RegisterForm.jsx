@@ -42,7 +42,6 @@ const RegistrationForm = () => {
       Notiflix.Notify.success(successMessage);
       resetForm();
     } catch (error) {
-      console.log(error);
       Notiflix.Notify.failure(errorMessage);
     }
   };
