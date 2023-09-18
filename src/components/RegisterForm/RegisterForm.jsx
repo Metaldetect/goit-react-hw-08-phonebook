@@ -18,6 +18,7 @@ const RegistrationForm = () => {
   const errorMessage = 'Registration failed. Please try again.';
 
   const initialValues = {
+    name: '',
     email: '',
     password: '',
   };
@@ -29,10 +30,11 @@ const RegistrationForm = () => {
     password: Yup.string().required('Password field is required'),
   });
 
-  const handleSubmit = async ({ values, resetForm }) => {
+  const handleSubmit = async (values, { resetForm }) => {
     try {
       dispatch(
         register({
+          name: values.name,
           email: values.email,
           password: values.password,
         })
@@ -40,6 +42,7 @@ const RegistrationForm = () => {
       Notiflix.Notify.success(successMessage);
       resetForm();
     } catch (error) {
+      console.log(error);
       Notiflix.Notify.failure(errorMessage);
     }
   };
@@ -53,6 +56,11 @@ const RegistrationForm = () => {
       <Form autoComplete="off">
         {
           <>
+            <FormGroup>
+              <Label htmlFor="name">Name</Label>
+              <Field type="text" id="name" name="name" />
+              <ErrorMessage name="name" component={ErrorMessageContainer} />
+            </FormGroup>
             <FormGroup>
               <Label htmlFor="email">Email</Label>
               <Field type="email" id="email" name="email" />
