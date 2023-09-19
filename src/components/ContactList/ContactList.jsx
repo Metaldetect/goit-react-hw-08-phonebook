@@ -14,8 +14,11 @@ function ContactList() {
   if (!contacts) {
     return null;
   }
-  const filteredContacts = contacts.filter(contact =>
-    contact.name.toLowerCase().includes(filter.toLowerCase())
+  const filteredContacts = contacts.filter(
+    contact =>
+      typeof filter === 'string' &&
+      typeof contact.name === 'string' &&
+      contact.name.toLowerCase().includes(filter.toLowerCase())
   );
 
   if (!filteredContacts?.length) {

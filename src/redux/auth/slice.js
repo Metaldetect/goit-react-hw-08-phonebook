@@ -12,7 +12,7 @@ const initialState = {
 const authSlice = createSlice({
   name: 'auth',
   initialState,
-  reducers: {},
+  // reducers: {},
   extraReducers: builder => {
     builder
       .addCase(register.fulfilled, (state, action) => {
