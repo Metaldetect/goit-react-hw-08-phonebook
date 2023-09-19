@@ -12,10 +12,9 @@ import {
   ErrorText,
 } from './ContactFormStyles';
 import Notiflix from 'notiflix';
-import {
-  useAddContactToFilterMutation,
-  useGetContactsQuery,
-} from 'redux/contactsApi';
+import { useDispatch, useSelector } from 'react-redux';
+import { addContact } from 'redux/contactsAsyncActions';
+import { selectContacts } from 'redux/selectors';
 
 const phonebookSchema = Yup.object().shape({
   name: Yup.string()
@@ -40,8 +39,8 @@ function ContactForm() {
     phone: '',
   };
 
-  const { data: contacts } = useGetContactsQuery();
-  const [addContactToFilter] = useAddContactToFilterMutation();
+  const dispatch = useDispatch();
+  const contacts = useSelector(selectContacts);
 
   const isContactDuplicate = (name, phone) => {
     if (!contacts || !Array.isArray(contacts)) {
@@ -67,15 +66,14 @@ function ContactForm() {
     }
 
     try {
-      const response = await addContactToFilter({ name, phone });
+      const response = await dispatch(addContact({ name, number: phone }));
 
-      if (response.error) {
+      if (addContact.fulfilled.match(response)) {
+        actions.resetForm();
+        Notiflix.Notify.success(successMessage);
+      } else {
         Notiflix.Notify.failure(errorMessage);
-        return;
       }
-
-      actions.resetForm();
-      Notiflix.Notify.success(successMessage);
     } catch (error) {
       Notiflix.Notify.failure(errorMessage);
     }

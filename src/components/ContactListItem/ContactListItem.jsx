@@ -10,11 +10,11 @@ import {
 import { RiContactsLine } from 'react-icons/ri';
 import { AiFillDelete } from 'react-icons/ai';
 
-import { useDeleteContactFromFilterMutation } from 'redux/contactsApi';
+import { deleteContact } from 'redux/contactsAsyncActions';
 import Notiflix from 'notiflix';
 
 function ContactItem({ id, name, phone }) {
-  const [deleteContactFromFilter] = useDeleteContactFromFilterMutation();
+  const [deleteContactFromFilter] = deleteContact();
 
   const handleDeleteContact = async () => {
     try {

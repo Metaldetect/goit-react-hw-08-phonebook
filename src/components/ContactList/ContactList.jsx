@@ -1,15 +1,15 @@
 import React from 'react';
 import { ContactListWrapper } from './ContactListStyles';
 import { useSelector } from 'react-redux';
-import { getFilter } from 'redux/selectors';
+import { selectContactsFilter } from 'redux/selectors';
 import ContactItem from 'components/ContactListItem';
 import Notiflix from 'notiflix';
 
-import { useGetContactsQuery } from 'redux/contactsApi';
+import { fetchContacts } from 'redux/contactsAsyncActions';
 
 function ContactList() {
-  const { data: contacts } = useGetContactsQuery();
-  const filter = useSelector(getFilter);
+  const { data: contacts } = fetchContacts();
+  const filter = useSelector(selectContactsFilter);
 
   if (!contacts) {
     return null;
