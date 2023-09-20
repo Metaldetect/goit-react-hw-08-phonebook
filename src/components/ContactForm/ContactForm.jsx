@@ -78,7 +78,6 @@ function ContactForm() {
       Notiflix.Notify.failure(errorMessage);
     }
   };
-
   return (
     <ContactFormWrapper>
       <ContactTitle>Phonebook</ContactTitle>

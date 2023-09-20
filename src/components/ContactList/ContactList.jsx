@@ -1,19 +1,18 @@
 import React from 'react';
 import { ContactListWrapper } from './ContactListStyles';
 import { useSelector } from 'react-redux';
-import { selectContactsFilter } from 'redux/selectors';
+import { selectContacts, selectContactsFilter } from 'redux/selectors';
 import ContactItem from 'components/ContactListItem';
 import Notiflix from 'notiflix';
 
-import { fetchContacts } from 'redux/contactsAsyncActions';
-
 function ContactList() {
-  const { data: contacts } = fetchContacts();
   const filter = useSelector(selectContactsFilter);
-
-  if (!contacts) {
+  const contacts = useSelector(selectContacts);
+  console.log(contacts);
+  if (!contacts || !Array.isArray(contacts) || contacts.length === 0) {
     return null;
   }
+
   const filteredContacts = contacts.filter(
     contact =>
       typeof filter === 'string' &&

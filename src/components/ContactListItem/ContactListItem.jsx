@@ -9,12 +9,12 @@ import {
 } from './ContactListItemStyles';
 import { RiContactsLine } from 'react-icons/ri';
 import { AiFillDelete } from 'react-icons/ai';
-
 import { deleteContact } from 'redux/contactsAsyncActions';
+import { useDispatch } from 'react-redux';
 import Notiflix from 'notiflix';
 
 function ContactItem({ id, name, phone }) {
-  const [deleteContactFromFilter] = deleteContact();
+  const deleteContactFromFilter = useDispatch(deleteContact);
 
   const handleDeleteContact = async () => {
     try {
