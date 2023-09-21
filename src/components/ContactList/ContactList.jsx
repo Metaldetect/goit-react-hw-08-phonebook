@@ -8,16 +8,13 @@ import Notiflix from 'notiflix';
 function ContactList() {
   const filter = useSelector(selectContactsFilter);
   const contacts = useSelector(selectContacts);
-  console.log(contacts);
+
   if (!contacts || !Array.isArray(contacts) || contacts.length === 0) {
     return null;
   }
 
-  const filteredContacts = contacts.filter(
-    contact =>
-      typeof filter === 'string' &&
-      typeof contact.name === 'string' &&
-      contact.name.toLowerCase().includes(filter.toLowerCase())
+  const filteredContacts = contacts.filter(contact =>
+    contact.name.toLowerCase().includes(filter.toLowerCase())
   );
 
   if (!filteredContacts?.length) {
