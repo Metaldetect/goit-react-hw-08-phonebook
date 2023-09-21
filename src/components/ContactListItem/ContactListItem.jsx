@@ -9,16 +9,16 @@ import {
 } from './ContactListItemStyles';
 import { RiContactsLine } from 'react-icons/ri';
 import { AiFillDelete } from 'react-icons/ai';
-import { deleteContact } from 'redux/contactsAsyncActions';
 import { useDispatch } from 'react-redux';
 import Notiflix from 'notiflix';
+import { deleteContact } from 'redux/contactsAsyncActions';
 
 function ContactItem({ id, name, phone }) {
-  const deleteContactFromFilter = useDispatch(deleteContact);
+  const dispatch = useDispatch();
 
   const handleDeleteContact = async () => {
     try {
-      await deleteContactFromFilter(id);
+      await dispatch(deleteContact(id));
       Notiflix.Notify.success('Contact deleted successfully!');
     } catch (error) {
       Notiflix.Notify.failure('An error occurred while deleting the contact.');
@@ -34,7 +34,7 @@ function ContactItem({ id, name, phone }) {
         <ContactName>{name}</ContactName>
         <ContactPhone>{phone}</ContactPhone>
       </ContactDetails>
-      <DeleteButton onClick={() => handleDeleteContact(id)}>
+      <DeleteButton onClick={handleDeleteContact}>
         <AiFillDelete />
       </DeleteButton>
     </ContactListItem>
