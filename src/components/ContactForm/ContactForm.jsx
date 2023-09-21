@@ -44,12 +44,12 @@ function ContactForm() {
   const successMessage = 'Contact added successfully!';
   const errorMessage = 'An error occurred while adding the contact.';
 
-  const isContactDuplicate = (name, phone) => {
+  const isContactDuplicate = (name, number) => {
     if (!contacts || !Array.isArray(contacts)) {
       return false;
     }
     return contacts.some(
-      contact => contact.name === name || contact.phone === phone
+      contact => contact.name === name || contact.number === number
     );
   };
 
