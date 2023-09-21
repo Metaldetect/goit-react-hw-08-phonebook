@@ -41,6 +41,8 @@ function ContactForm() {
 
   const dispatch = useDispatch();
   const contacts = useSelector(selectContacts);
+  const successMessage = 'Contact added successfully!';
+  const errorMessage = 'An error occurred while adding the contact.';
 
   const isContactDuplicate = (name, phone) => {
     if (!contacts || !Array.isArray(contacts)) {
@@ -54,9 +56,6 @@ function ContactForm() {
   const handleSubmit = async (values, actions) => {
     const { name, phone } = values;
     const isDuplicateContact = isContactDuplicate(name, phone);
-
-    const successMessage = 'Contact added successfully!';
-    const errorMessage = 'An error occurred while adding the contact.';
 
     if (isDuplicateContact) {
       Notiflix.Notify.failure(
