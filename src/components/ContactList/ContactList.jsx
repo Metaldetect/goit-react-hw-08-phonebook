@@ -23,8 +23,8 @@ function ContactList() {
 
   return (
     <ContactListWrapper>
-      {filteredContacts.map(({ id, name, phone }) => (
-        <ContactItem key={id} id={id} name={name} phone={phone} />
+      {filteredContacts.map(({ id, name, number }) => (
+        <ContactItem key={id} id={id} name={name} phone={number} />
       ))}
     </ContactListWrapper>
   );
