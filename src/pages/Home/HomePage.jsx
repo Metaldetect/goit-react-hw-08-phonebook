@@ -1,8 +1,9 @@
-import { Container, Title } from './HomePageStyles';
+import LoginForm from 'components/LoginForm';
+import { Container } from './HomePageStyles';
 
 const Home = () => (
   <Container>
-    <Title>Home page of the Phonebook</Title>
+    <LoginForm />
   </Container>
 );
 
