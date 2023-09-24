@@ -30,7 +30,7 @@ const ContactItem = ({ id, name, phone }) => {
       sx={{
         display: 'flex',
         alignItems: 'center',
-        justifyContent: 'space-between',
+        justifyContent: 'space-around',
         padding: '16px',
       }}
     >
@@ -44,6 +44,7 @@ const ContactItem = ({ id, name, phone }) => {
         sx={{
           display: 'flex',
           alignItems: 'center',
+          gap: 2,
         }}
       >
         <Typography variant="h4">{name}</Typography>
