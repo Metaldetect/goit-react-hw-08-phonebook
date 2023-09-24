@@ -1,20 +1,11 @@
-// import PropTypes from 'prop-types';
 import React from 'react';
 import * as Yup from 'yup';
-import { Formik, Form, Field } from 'formik';
-import {
-  ContactFormWrapper,
-  ContactTitle,
-  Button,
-  FormWrapper,
-  FormGroup,
-  Label,
-  ErrorText,
-} from './ContactFormStyles';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
 import Notiflix from 'notiflix';
 import { useDispatch, useSelector } from 'react-redux';
 import { addContact } from 'redux/contactsAsyncActions';
 import { selectContacts } from 'redux/selectors';
+import { Button, Container, TextField, Typography } from '@mui/material';
 
 const phonebookSchema = Yup.object().shape({
   name: Yup.string()
@@ -78,40 +69,50 @@ function ContactForm() {
     }
   };
   return (
-    <ContactFormWrapper>
-      <ContactTitle>Phonebook</ContactTitle>
+    <Container maxWidth="xs">
+      <Typography variant="h5" align="center" gutterBottom>
+        Phonebook
+      </Typography>
       <Formik
         initialValues={initialValues}
         validationSchema={phonebookSchema}
         onSubmit={handleSubmit}
       >
-        <Form as={FormWrapper}>
-          <FormGroup>
-            <Label htmlFor="name">Name</Label>
-            <Field type="text" id="name" name="name" />
-            <ErrorText name="name" component="div" className="error" />
-          </FormGroup>
-
-          <FormGroup>
-            <Label htmlFor="phone">Phone</Label>
-            <Field type="text" id="phone" name="phone" />
-            <ErrorText name="phone" component="div" className="error" />
-          </FormGroup>
-
-          <Button type="submit">Add Contact</Button>
+        <Form>
+          <Field
+            as={TextField}
+            fullWidth
+            id="name"
+            name="name"
+            label="Name"
+            variant="outlined"
+            margin="normal"
+            helperText={<ErrorMessage name="name" />}
+          />
+          <Field
+            as={TextField}
+            fullWidth
+            id="phone"
+            name="phone"
+            label="Phone"
+            variant="outlined"
+            margin="normal"
+            helperText={<ErrorMessage name="phone" />}
+          />
+          <Button
+            type="submit"
+            variant="contained"
+            color="primary"
+            fullWidth
+            size="large"
+            sx={{ mt: 2 }}
+          >
+            Add Contact
+          </Button>
         </Form>
       </Formik>
-    </ContactFormWrapper>
+    </Container>
   );
 }
 
-// ContactForm.propTypes = {
-//   contacts: PropTypes.arrayOf(
-//     PropTypes.shape({
-//       id: PropTypes.string.isRequired,
-//       name: PropTypes.string.isRequired,
-//       phone: PropTypes.string.isRequired,
-//     })
-//   ).isRequired,
-// };
 export default ContactForm;
