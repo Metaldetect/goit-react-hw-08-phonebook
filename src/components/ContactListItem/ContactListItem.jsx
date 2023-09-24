@@ -1,17 +1,18 @@
 import React from 'react';
 import {
-  ListItem,
-  ListItemText,
-  ListItemSecondaryAction,
-  IconButton,
+  ListItemAvatar,
+  Avatar,
+  Typography,
+  Box,
+  Button,
+  Paper,
 } from '@mui/material';
-import { RiContactsLine } from 'react-icons/ri';
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useDispatch } from 'react-redux';
 import Notiflix from 'notiflix';
 import { deleteContact } from 'redux/contactsAsyncActions';
 
-function ContactItem({ id, name, phone }) {
+const ContactItem = ({ id, name, phone }) => {
   const dispatch = useDispatch();
 
   const handleDeleteContact = async () => {
@@ -24,20 +25,41 @@ function ContactItem({ id, name, phone }) {
   };
 
   return (
-    <ListItem>
-      <RiContactsLine fontSize="large" />
-      <ListItemText primary={name} secondary={phone} />
-      <ListItemSecondaryAction>
-        <IconButton
-          edge="end"
-          aria-label="delete"
-          onClick={handleDeleteContact}
-        >
-          <DeleteIcon />
-        </IconButton>
-      </ListItemSecondaryAction>
-    </ListItem>
+    <Paper
+      elevation={3}
+      sx={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        padding: '16px',
+      }}
+    >
+      <ListItemAvatar>
+        <Avatar
+          alt={`Avatar ${name}`}
+          src="https://source.unsplash.com/random"
+        />
+      </ListItemAvatar>
+      <Box
+        sx={{
+          display: 'flex',
+          alignItems: 'center',
+        }}
+      >
+        <Typography variant="h4">{name}</Typography>
+        <Typography variant="body1" sx={{ color: '#555', marginLeft: '16px' }}>
+          {phone}
+        </Typography>
+      </Box>
+      <Button
+        variant="outlined"
+        startIcon={<DeleteIcon />}
+        onClick={handleDeleteContact}
+      >
+        Delete
+      </Button>
+    </Paper>
   );
-}
+};
 
 export default ContactItem;
