@@ -6,4 +6,4 @@ export const selectEmail = state => state.auth.email;
 
 export const selectIsRefreshing = state => state.auth.isRefreshing;
 
-
+export const selectIsAuthenticated = state => state.auth.isAuthenticated;
