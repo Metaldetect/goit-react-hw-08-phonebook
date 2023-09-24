@@ -1,10 +1,25 @@
 import { NavLink } from 'react-router-dom';
+import { Typography } from '@mui/material';
 
 const AuthNav = () => {
   return (
     <>
-      <NavLink to="/register">Register</NavLink>
-      <NavLink to="/login">Log In</NavLink>
+      <Typography
+        variant="button"
+        component={NavLink}
+        to="/register"
+        sx={{ color: 'primary.main', mr: 2 }}
+      >
+        Register
+      </Typography>
+      <Typography
+        variant="button"
+        component={NavLink}
+        to="/login"
+        sx={{ color: 'primary.main' }}
+      >
+        Log In
+      </Typography>
     </>
   );
 };
