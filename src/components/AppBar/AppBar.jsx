@@ -1,6 +1,5 @@
 import * as React from 'react';
 import { AppBar as MuiAppBar, Toolbar, Typography, Box } from '@mui/material';
-import Navigation from 'components/Navigation';
 import UserMenu from 'components/UserMenu';
 import useAuth from 'hooks/useAuth';
 import { Header } from './AppBarStyles';
@@ -24,7 +23,6 @@ function AppBar() {
           <Box sx={{ marginLeft: 'auto' }}>{isLoggedIn && <UserMenu />}</Box>
         </Toolbar>
       </MuiAppBar>
-      <Navigation />
     </Header>
   );
 }
