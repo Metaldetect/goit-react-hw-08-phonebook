@@ -1,14 +1,12 @@
 import React from 'react';
 import {
-  ContactListItem,
-  ContactIcon,
-  ContactDetails,
-  ContactName,
-  ContactPhone,
-  DeleteButton,
-} from './ContactListItemStyles';
+  ListItem,
+  ListItemText,
+  ListItemSecondaryAction,
+  IconButton,
+} from '@mui/material';
 import { RiContactsLine } from 'react-icons/ri';
-import { AiFillDelete } from 'react-icons/ai';
+import DeleteIcon from '@mui/icons-material/Delete';
 import { useDispatch } from 'react-redux';
 import Notiflix from 'notiflix';
 import { deleteContact } from 'redux/contactsAsyncActions';
@@ -26,18 +24,19 @@ function ContactItem({ id, name, phone }) {
   };
 
   return (
-    <ContactListItem key={id}>
-      <ContactIcon>
-        <RiContactsLine />
-      </ContactIcon>
-      <ContactDetails>
-        <ContactName>{name}</ContactName>
-        <ContactPhone>{phone}</ContactPhone>
-      </ContactDetails>
-      <DeleteButton onClick={handleDeleteContact}>
-        <AiFillDelete />
-      </DeleteButton>
-    </ContactListItem>
+    <ListItem>
+      <RiContactsLine fontSize="large" />
+      <ListItemText primary={name} secondary={phone} />
+      <ListItemSecondaryAction>
+        <IconButton
+          edge="end"
+          aria-label="delete"
+          onClick={handleDeleteContact}
+        >
+          <DeleteIcon />
+        </IconButton>
+      </ListItemSecondaryAction>
+    </ListItem>
   );
 }
 
