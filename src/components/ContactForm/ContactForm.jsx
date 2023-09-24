@@ -70,7 +70,12 @@ function ContactForm() {
   };
   return (
     <Container maxWidth="xs">
-      <Typography variant="h2" align="center" gutterBottom>
+      <Typography
+        variant="h2"
+        align="center"
+        gutterBottom
+        sx={{ marginTop: 8}}
+      >
         Phonebook
       </Typography>
       <Formik
