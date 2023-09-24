@@ -14,7 +14,7 @@ const ContactsPage = lazy(() => import('../../pages/ContactsPage'));
 
 function App() {
   const dispatch = useDispatch();
-  const { isRefreshing } = useAuth();
+  const { isRefreshing, isAuthenticated } = useAuth();
 
   useEffect(() => {
     dispatch(refreshUser());
@@ -25,7 +25,11 @@ function App() {
   ) : (
     <Routes>
       <Route path="/" element={<Layout />}>
-        <Route index element={<HomePage />} />
+        {isAuthenticated ? (
+          <Route index element={<Navigate to="/contacts" />} />
+        ) : (
+          <Route index element={<HomePage />} />
+        )}
         <Route
           path="register"
           element={
