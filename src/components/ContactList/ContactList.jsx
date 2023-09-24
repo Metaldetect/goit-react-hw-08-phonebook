@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { selectContacts, selectContactsFilter } from 'redux/selectors';
 import Notiflix from 'notiflix';
-import { Paper, Typography, Grid } from '@mui/material';
+import { Paper, Grid } from '@mui/material';
 import ContactItem from 'components/ContactListItem';
 
 function ContactList() {
@@ -24,11 +24,6 @@ function ContactList() {
   return (
     <Paper elevation={3} sx={{ p: 2 }}>
       <Grid container spacing={2} justifyContent="center">
-        <Grid item xs={12}>
-          <Typography variant="h6" align="center">
-            Phonebook
-          </Typography>
-        </Grid>
         {filteredContacts.map(({ id, name, number }) => (
           <Grid item xs={12} key={id}>
             <ContactItem id={id} name={name} phone={number} />
