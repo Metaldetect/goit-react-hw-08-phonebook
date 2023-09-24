@@ -2,7 +2,6 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { logOut } from 'redux/auth/operation';
 import useAuth from 'hooks/useAuth';
-
 import { Avatar, Box, Button, Typography, Container } from '@mui/material';
 
 const UserMenu = () => {
