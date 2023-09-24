@@ -12,8 +12,8 @@ function Contacts() {
           <title>Phonebook</title>
         </Helmet>
         <ContactForm />
-        <ContactList />
         <Filter />
+        <ContactList />
       </HelmetProvider>
     </>
   );
