@@ -37,7 +37,7 @@ const ContactItem = ({ id, name, phone }) => {
       <ListItemAvatar>
         <Avatar
           alt={`Avatar ${name}`}
-          src="https://source.unsplash.com/random"
+          src="https://source.unsplash.com/random/50x50"
         />
       </ListItemAvatar>
       <Box
