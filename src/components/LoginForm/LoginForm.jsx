@@ -74,7 +74,6 @@ const LoginForm = () => {
               label="Email Address"
               name="email"
               autoComplete="email"
-              autoFocus
             />
             <ErrorMessage name="email" component="div" />
             <Field
