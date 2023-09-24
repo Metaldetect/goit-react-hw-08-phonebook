@@ -70,7 +70,7 @@ function ContactForm() {
   };
   return (
     <Container maxWidth="xs">
-      <Typography variant="h5" align="center" gutterBottom>
+      <Typography variant="h2" align="center" gutterBottom>
         Phonebook
       </Typography>
       <Formik
