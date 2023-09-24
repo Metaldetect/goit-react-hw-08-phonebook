@@ -22,8 +22,20 @@ function ContactList() {
   }
 
   return (
-    <Paper elevation={3} sx={{ p: 2 }}>
-      <Grid container spacing={2} justifyContent="center">
+    <Paper
+      sx={{
+        p: 2,
+      }}
+    >
+      <Grid
+        container
+        spacing={3}
+        justifyContent="space-between"
+        sx={{
+          maxWidth: 600,
+          margin: '0 auto',
+        }}
+      >
         {filteredContacts.map(({ id, name, number }) => (
           <Grid item xs={12} key={id}>
             <ContactItem id={id} name={name} phone={number} />
