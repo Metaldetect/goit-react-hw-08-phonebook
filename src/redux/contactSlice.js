@@ -26,7 +26,7 @@ const contactsSlice = createSlice({
     isLoading: false,
     error: null,
   },
-  reducers: {},
+  // reducers: {},
   extraReducers: builder => {
     builder
       .addCase(fetchContacts.pending, handlePending)
