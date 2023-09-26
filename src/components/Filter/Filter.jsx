@@ -1,7 +1,7 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { selectContactsFilter } from 'redux/selectors';
-import { setFilter } from 'redux/filterSlice';
+import { selectContactsFilter } from 'redux/constacts/selectors';
+import { setFilter } from 'redux/constacts/filterSlice';
 import TextField from '@mui/material/TextField';
 import InputLabel from '@mui/material/InputLabel';
 import FormControl from '@mui/material/FormControl';
