@@ -8,18 +8,19 @@ import {
 } from '@mui/material';
 import UserMenu from 'components/UserMenu';
 import useAuth from 'hooks/useAuth';
-import { Link, NavLink, useLocation } from 'react-router-dom';
+import { Link, NavLink, useMatch } from 'react-router-dom';
 
 function AppBar() {
   const { isLoggedIn } = useAuth();
-  const location = useLocation();
+  const loginMatch = useMatch('/login');
+  const registerMatch = useMatch('/register');
 
   return (
     <MuiAppBar position="static">
       <Toolbar>
         {!isLoggedIn && (
           <Typography variant="h5" component="div" sx={{ flexGrow: 1 }}>
-            <Link to="/">Home</Link>
+            <Link to="/">Phonebook</Link>
           </Typography>
         )}
         <Typography variant="h5">
@@ -29,8 +30,8 @@ function AppBar() {
           {isLoggedIn ? (
             <UserMenu />
           ) : (
-            location.pathname !== '/login' &&
-            location.pathname !== '/register' && (
+            !loginMatch &&
+            !registerMatch && (
               <Button color="inherit" component={Link} to="/login">
                 Log In
               </Button>
