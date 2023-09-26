@@ -1,6 +1,9 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import { selectContacts, selectContactsFilter } from 'redux/selectors';
+import {
+  selectContacts,
+  selectContactsFilter,
+} from 'redux/constacts/selectors';
 import Notiflix from 'notiflix';
 import { Paper, Grid } from '@mui/material';
 import ContactItem from 'components/ContactListItem';
