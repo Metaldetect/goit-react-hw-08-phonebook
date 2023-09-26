@@ -10,7 +10,7 @@ import {
 import DeleteIcon from '@mui/icons-material/Delete';
 import { useDispatch } from 'react-redux';
 import Notiflix from 'notiflix';
-import { deleteContact } from 'redux/contactsAsyncActions';
+import { deleteContact } from 'redux/constacts/contactsAsyncActions';
 
 const ContactItem = ({ id, name, phone }) => {
   const dispatch = useDispatch();
