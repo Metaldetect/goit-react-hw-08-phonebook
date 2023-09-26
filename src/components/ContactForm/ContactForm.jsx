@@ -3,8 +3,8 @@ import * as Yup from 'yup';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import Notiflix from 'notiflix';
 import { useDispatch, useSelector } from 'react-redux';
-import { addContact } from 'redux/contactsAsyncActions';
-import { selectContacts } from 'redux/selectors';
+import { addContact } from 'redux/constacts/contactsAsyncActions';
+import { selectContacts } from 'redux/constacts/selectors';
 import { Button, Container, TextField, Typography } from '@mui/material';
 
 const phonebookSchema = Yup.object().shape({
@@ -74,7 +74,7 @@ function ContactForm() {
         variant="h2"
         align="center"
         gutterBottom
-        sx={{ marginTop: 8}}
+        sx={{ marginTop: 8 }}
       >
         Phonebook
       </Typography>
